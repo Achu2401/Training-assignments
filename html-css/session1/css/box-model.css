@@ -1,0 +1,77 @@
+/*
+Total rendered width = 300px because border-box includes
+padding and border inside the specified width.
+
+If border-box is removed, the total width becomes:
+
+300 + 20 + 20 + 4 + 4 = 348px
+
+The element becomes wider.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    border: 4px solid #333;
+    margin: 40px auto;
+    background-color: lightblue;
+}
+.content-box {
+    box-sizing: content-box;
+    width: 300px;
+    padding: 20px;
+    border: 4px solid red;
+    margin: 20px auto;
+    background-color: #ffe0e0;
+}
+
+.border-box {
+    box-sizing: border-box;
+    width: 300px;
+    padding: 20px;
+    border: 4px solid green;
+    margin: 20px auto;
+    background-color: #e0ffe0;
+}
+
+/*
+Difference:
+
+content-box:
+Width only applies to the content.
+Padding and border are added outside,
+making the element wider than 300px.
+
+border-box:
+The specified width includes the content,
+padding, and border, so the total width
+remains exactly 300px.
+*/
+
+.padding-demo {
+    background-color: lightcoral;
+    padding: 30px;
+    margin: 8px 0;
+}
+
+.margin-demo {
+    background-color: lightcoral;
+    padding: 4px;
+    margin: 30px 0;
+}
+
+/*
+Padding adds space inside the element,
+so the background color extends into the padded area.
+
+Margin adds space outside the element,
+so the background color does not fill the margin.
+
+Use padding for spacing inside a component.
+Use margin to separate components from each other.
+*/

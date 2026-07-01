@@ -1,0 +1,27 @@
+/*
+The actual gap is 40px, not 60px.
+
+This happens because vertical margins between block elements collapse.
+The browser uses only the larger margin.
+
+Margin collapse does NOT happen:
+- For horizontal margins
+- When elements use flexbox or grid
+- When there is padding, border, or content between them
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+.first {
+    background-color: #ffe0e0;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.second {
+    background-color: #e0e0ff;
+    padding: 10px;
+    margin-top: 20px;
+}

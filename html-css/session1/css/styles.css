@@ -1,0 +1,88 @@
+/* 
+The stylesheet is linked inside the <head> so it loads before the page is rendered.
+This prevents a flash of unstyled content (FOUC) and ensures the page is styled as soon as it loads.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* ---------- Task 2.2 ---------- */
+
+/* Tag Selector */
+h2 {
+    color: steelblue;
+    border-bottom: 2px solid steelblue;
+    padding-bottom: 6px;
+}
+
+/* Class Selector */
+.highlight {
+    background-color: gold;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+/* ID Selector */
+#contact-section {
+    background-color: #d9f3ff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/*
+Observation:
+If both a tag selector and a class selector style the same property,
+the class selector wins because it has higher specificity.
+*/
+
+/* ---------- Task 2.3 ---------- */
+
+p {
+    color: black;
+}
+
+.intro-text {
+    color: blue;
+}
+
+#about-paragraph {
+    color: green;
+}
+
+/*
+Questions:
+
+1. The paragraph is GREEN because an ID selector has higher specificity
+than a class selector and a tag selector.
+
+2. To make the p selector win, remove the class and ID or use
+!important (not recommended).
+
+3. Specificity order:
+Tag Selector < Class Selector < ID Selector < Inline Style < !important
+*/
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    margin-right: 20px;
+    color: steelblue;
+    text-decoration: none;
+}
+
+/*
+href="#about" links to the element whose id is "about".
+The browser searches for that id and automatically scrolls to it.
+*/

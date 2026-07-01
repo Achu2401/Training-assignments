@@ -1,0 +1,114 @@
+/*
+Task 1
+
+Difference between Border and Outline
+
+Border is part of the box model and takes up space.
+
+Outline is drawn outside the border and does not affect the element's size.
+
+Outline is commonly used to highlight focused elements for accessibility.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/* ---------- Task 1 ---------- */
+
+.border-box {
+    border: 4px solid royalblue;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.outline-box {
+    outline: 4px solid crimson;
+    padding: 20px;
+    background: white;
+}
+
+/* ---------- Task 2 ---------- */
+
+/*
+visibility:hidden hides the element but keeps its space.
+
+display:none removes the element completely from the page layout.
+*/
+
+.visible-box {
+    background: lightgreen;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+.hidden-box {
+    visibility: hidden;
+    background: tomato;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+.none-box {
+    display: none;
+    background: gold;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+/* ---------- Task 3 ---------- */
+
+/*
+max-width prevents the container from becoming too wide,
+improving readability on large screens while remaining responsive.
+*/
+
+.container {
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border: 1px solid gray;
+}
+
+/* ---------- Task 4 ---------- */
+
+/*
+overflow:hidden hides overflowing content.
+
+overflow:scroll always shows scrollbars.
+
+overflow:auto shows scrollbars only when needed.
+*/
+
+.overflow {
+    width: 300px;
+    height: 100px;
+    border: 2px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+.scroll {
+    overflow: scroll;
+}
+
+.auto {
+    overflow: auto;
+}
