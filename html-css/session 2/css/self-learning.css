@@ -1,0 +1,198 @@
+:root {
+
+    --primary-color: #2563eb;
+    --secondary-color: #dbeafe;
+    --background-color: #f8fafc;
+    --text-color: #1f2937;
+
+}
+
+body {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+}
+
+.variables-demo {
+    background: var(--secondary-color);
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+/*
+CSS Variables
+
+Variables are defined using --variable-name inside :root.
+
+Example:
+
+--primary-color
+
+They can be reused anywhere using
+
+var(--primary-color)
+
+Changing one variable updates every place where it is used.
+*/
+
+hr{
+    margin:40px 0;
+}
+
+
+.fluid-heading{
+
+    font-size: clamp(1rem,5vw,2.5rem);
+
+}
+
+/*
+
+clamp(min, preferred, max)
+
+1rem = minimum size
+
+5vw = responsive preferred size
+
+2.5rem = maximum size
+
+The heading scales smoothly as the browser width changes
+without using media queries.
+
+*/
+
+
+.layout{
+
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    grid-template-areas:
+
+    "header header"
+
+    "sidebar main"
+
+    "footer footer";
+
+    gap:1rem;
+
+    margin-top:1rem;
+
+}
+
+.grid-header{
+
+    grid-area:header;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:1rem;
+
+}
+
+.grid-sidebar{
+
+    grid-area:sidebar;
+
+    background:#bfdbfe;
+
+    padding:1rem;
+
+}
+
+.grid-main{
+
+    grid-area:main;
+
+    background:white;
+
+    padding:1rem;
+
+    border:1px solid #ccc;
+
+}
+
+.grid-footer{
+
+    grid-area:footer;
+
+    background:#1e3a8a;
+
+    color:white;
+
+    padding:1rem;
+
+}
+
+/*
+
+grid-template-areas
+
+Lets us assign names to different areas
+instead of using row and column numbers.
+
+Each element is placed using
+
+grid-area:name;
+
+This makes layouts easier to read and maintain.
+
+*/
+
+
+.ratio-card{
+
+    width:100%;
+
+    max-width:500px;
+
+    aspect-ratio:16/9;
+
+    background:#6366f1;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2rem;
+
+    border-radius:10px;
+
+}
+
+/*
+
+aspect-ratio
+
+Maintains a fixed width-to-height ratio.
+
+16/9 means:
+
+Width : Height = 16 : 9
+
+As the width changes,
+the height automatically adjusts
+to preserve the ratio.
+
+Useful for images,
+videos,
+cards,
+and placeholders.
+
+*/

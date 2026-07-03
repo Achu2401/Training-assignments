@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f5f5f5;
+}
+
+hr {
+    margin: 40px 0;
+}
+
+
+.container {
+    display: flex;
+    background: #eee;
+    padding: 1rem;
+    gap: 1rem;
+
+    /* Uncomment ONE property at a time to observe */
+
+    /* justify-content: center; */
+    /* Moves all items to the center horizontally */
+
+    /* justify-content: space-between; */
+    /* Places first and last items at the edges with equal space between */
+
+    /* justify-content: space-evenly; */
+    /* Gives equal space around every item */
+
+    /* align-items: flex-start; */
+    /* Aligns items to the top of the container */
+
+    /* align-items: stretch; */
+    /* Makes items stretch to fill the container height */
+
+    /* flex-direction: column; */
+    /* Stacks items vertically instead of horizontally */
+
+    /* flex-wrap: wrap; */
+    /* Allows items to move to the next line when space is insufficient */
+}
+
+.item {
+    background: #4f46e5;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+}
+
+
+.grow-container {
+    display: flex;
+    gap: 1rem;
+    background: #eee;
+    padding: 1rem;
+}
+
+.grow-1 {
+    flex-grow: 1;
+    background: #818cf8;
+    padding: 1rem;
+}
+
+.grow-2 {
+    flex-grow: 2;
+    background: #4f46e5;
+    color: white;
+    padding: 1rem;
+}
+
+/*
+Observation:
+
+The total grow value is 1 + 2 + 1 = 4.
+
+Each grow-1 item gets 1/4 of the remaining space.
+The grow-2 item gets 2/4 (half) of the remaining space.
+
+If flex-grow becomes 3,
+the ratio becomes 1 : 3 : 1.
+
+Meaning the middle box becomes even wider.
+
+flex-grow decides how the remaining space is shared among flex items.
+*/
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #333;
+    color: white;
+    padding: 15px 25px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links a:hover {
+    color: #c7d2fe;
+}
+
+
+.card-row {
+    display: flex;
+    gap: 1.5rem;
+
+    /* Try this */
+    /* flex-wrap: wrap; */
+}
+
+.card {
+    flex: 1;
+
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/*
+Observation:
+
+With three cards,
+each card gets equal width.
+
+If a fourth card is added,
+all four cards still share the available space equally.
+
+When flex-wrap: wrap is enabled and the window becomes smaller,
+cards automatically move to the next line instead of shrinking too much.
+*/

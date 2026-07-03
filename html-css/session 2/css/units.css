@@ -1,0 +1,87 @@
+/* Root font size */
+html {
+    font-size: 16px;
+}
+
+/* Common styles for all boxes */
+.box-px,
+.box-percent,
+.box-rem,
+.box-vw {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #333;
+}
+
+/* Fixed width */
+.box-px {
+    width: 300px;
+    background: #f0f4ff;
+}
+
+/* Percentage width */
+.box-percent {
+    width: 50%;
+    background: #fff0f4;
+}
+
+/* REM width */
+.box-rem {
+    width: 20rem;
+    background: #f0fff4;
+}
+
+/* Viewport width */
+.box-vw {
+    width: 60vw;
+    background: #fffbf0;
+}
+
+/* Font Demo */
+.font-demo {
+    font-size: 12px;
+    margin-top: 2rem;
+}
+
+.px-text {
+    font-size: 16px;
+}
+
+.rem-text {
+    font-size: 1rem;
+}
+
+.em-text {
+    font-size: 1.5em;
+}
+
+/*
+Observation (Task 1.1)
+
+- 300px stays the same width.
+- 50% changes based on the parent container.
+- 20rem changes if the root (html) font size changes.
+- 60vw changes with the browser window width.
+
+When to use px?
+Use px when you need an exact fixed size, like borders, icons, or small UI elements.
+Use rem for scalable fonts and layouts.
+Use % or vw for responsive layouts.
+*/
+
+/*
+Observation (Task 1.2)
+
+Change html {
+    font-size: 20px;
+}
+
+Results:
+- 16px text stays 16px.
+- 1rem text becomes 20px because rem uses the root font size.
+- 1.5em text becomes 18px because it uses the parent (.font-demo) font size of 12px.
+
+Difference:
+- rem is based on the root (html) font size.
+- em is based on the font size of its parent element.
+*/

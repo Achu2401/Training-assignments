@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f4f4f4;
+}
+
+hr {
+    margin: 40px 0;
+}
+
+
+/* Mobile-first (Base Styles) */
+
+.responsive-box {
+    background: #fef3c7;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) {
+
+    .responsive-box {
+        background: #d1fae5;
+        padding: 2rem;
+        font-size: 1rem;
+    }
+
+}
+
+/* Desktop */
+
+@media (min-width: 1024px) {
+
+    .responsive-box {
+        background: #dbeafe;
+        padding: 3rem;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+}
+
+/*
+Observation:
+
+min-width
+Applies styles when the screen is AT LEAST the specified width.
+
+max-width
+Applies styles when the screen is LESS THAN OR EQUAL TO the specified width.
+
+This example uses the Mobile-First approach because
+the base styles are written for mobile and larger screens
+are enhanced using min-width media queries.
+*/
+
+
+.resp-nav {
+    background: #1e1b4b;
+    padding: 1rem;
+}
+
+.resp-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.resp-links {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.resp-links a {
+    color: #a5b4fc;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+
+    .resp-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .resp-logo {
+        margin-bottom: 0;
+    }
+
+    .resp-links {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+}
+
+
+.image-section {
+    margin-top: 2rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*
+Observation:
+
+max-width: 100%
+Prevents the image from becoming wider than its container.
+
+Without it,
+the image keeps its original width and may overflow
+on smaller screens.
+
+height: auto
+Maintains the image's original aspect ratio while resizing,
+preventing the image from appearing stretched or squashed.
+*/
