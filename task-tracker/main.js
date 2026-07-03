@@ -1,7 +1,3 @@
-// ===============================
-// main.js - Part 1
-// ===============================
-
 import {
     getTasks,
     saveTasks,
@@ -10,9 +6,7 @@ import {
 } from "./tasks.js";
 
 
-// -------------------------------
 // DOM Elements
-// -------------------------------
 
 const taskForm = document.getElementById("task-form");
 
@@ -41,18 +35,14 @@ const summaryBody = document.getElementById("summary-body");
 const prioritySummary = document.getElementById("priority-summary");
 
 
-// -------------------------------
 // App State
-// -------------------------------
 
 let tasks = getTasks();
 
 let currentFilter = "all";
 
 
-// -------------------------------
 // Add Task
-// -------------------------------
 
 taskForm.addEventListener("submit", function (e) {
 
@@ -85,9 +75,9 @@ taskForm.addEventListener("submit", function (e) {
 });
 
 
-// -------------------------------
+ 
 // Render Tasks
-// -------------------------------
+ 
 
 function renderTasks() {
 
@@ -219,9 +209,9 @@ function renderTasks() {
 }
 
 
-// -------------------------------
+ 
 // Counter
-// -------------------------------
+ 
 
 function updateCounter() {
 
@@ -231,20 +221,15 @@ function updateCounter() {
 }
 
 
-// -------------------------------
+ 
 // Initialize
-// -------------------------------
+ 
 
 renderTasks();
 
-// ===============================
-// main.js - Part 2
-// ===============================
-
-
-// -------------------------------
+ 
 // Toggle Task Status
-// -------------------------------
+ 
 
 function toggleTask(id) {
 
@@ -270,9 +255,9 @@ function toggleTask(id) {
 }
 
 
-// -------------------------------
+ 
 // Delete Task
-// -------------------------------
+ 
 
 function deleteTask(id) {
 
@@ -293,9 +278,9 @@ function deleteTask(id) {
 }
 
 
-// -------------------------------
+ 
 // Clear All Tasks
-// -------------------------------
+ 
 
 clearAllBtn.addEventListener("click", () => {
 
@@ -314,9 +299,9 @@ clearAllBtn.addEventListener("click", () => {
 });
 
 
-// -------------------------------
+ 
 // Filter Buttons
-// -------------------------------
+ 
 
 allBtn.addEventListener("click", () => {
 
@@ -345,9 +330,9 @@ doneBtn.addEventListener("click", () => {
 });
 
 
-// -------------------------------
+ 
 // Sort Dropdown
-// -------------------------------
+ 
 
 sortSelect.addEventListener("change", () => {
 
@@ -356,9 +341,9 @@ sortSelect.addEventListener("change", () => {
 });
 
 
-// -------------------------------
+ 
 // Save After Every Change
-// -------------------------------
+ 
 
 function updateTasks(updatedTasks) {
 
@@ -369,16 +354,9 @@ function updateTasks(updatedTasks) {
     renderTasks();
 
 }
-
-// ===============================
-// main.js - Part 3
-// ===============================
-
-
-// -------------------------------
+ 
 // Update Summary Tables
-// -------------------------------
-
+ 
 function updateSummary() {
 
     // Clear existing rows
@@ -440,13 +418,8 @@ function updateSummary() {
 }
 
 
-// -------------------------------
+ 
 // Initial Summary
-// -------------------------------
+ 
 
 updateSummary();
-
-
-// ===============================
-// End of main.js
-// ===============================
