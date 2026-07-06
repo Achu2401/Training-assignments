@@ -51,3 +51,24 @@ scripts, and the packages it depends on.
 package-lock.json records the exact versions of every installed package and
 their dependencies. It ensures everyone installing the project gets the same
 versions, making builds consistent across different machines.
+
+## __dirname and __filename
+
+__dirname contains the absolute path of the current directory.
+
+__filename contains the absolute path of the current file.
+
+They are available in CommonJS modules (require/module.exports).
+
+They are not available in ES Modules (import/export). Instead,
+ES Modules use import.meta.url together with fileURLToPath()
+from the url module to get similar information.
+
+## npm install vs npm ci
+
+npm install installs project dependencies and updates the
+package-lock.json file when necessary.
+
+npm ci installs dependencies exactly as listed in package-lock.json.
+It is faster and is mainly used in CI/CD pipelines and production
+environments to ensure consistent installations.
