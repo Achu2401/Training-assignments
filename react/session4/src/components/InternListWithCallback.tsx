@@ -9,7 +9,7 @@ interface InternRowProps {
   onRemove: (id: number) => void
 }
 
-function InternRow({ id, name, score, onRemove }: InternRowProps) {
+export function InternRow({ id, name, score, onRemove }: InternRowProps) {
   const { theme } = useTheme()
 
   console.log(`InternRow rendered: ${name}`)
