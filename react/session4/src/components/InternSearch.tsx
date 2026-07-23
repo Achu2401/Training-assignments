@@ -11,12 +11,15 @@ function InternSearch() {
     <div style={{ marginBottom: '20px' }}>
       <h2>Search Interns</h2>
 
-      <input
-        type="text"
-        placeholder="Search by name"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <label>
+        Search
+        <input
+          type="text"
+          placeholder="Search by name or role"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </label>
 
       <h3>Statistics</h3>
 

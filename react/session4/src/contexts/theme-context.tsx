@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
 
 type Theme = 'light' | 'dark'
@@ -16,6 +16,14 @@ const ThemeContext = createContext<ThemeContextType | null>(null)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light')
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', theme === 'dark')
+    document.documentElement.style.setProperty(
+      '--background-color',
+      theme === 'light' ? '#ffffff' : '#16171d'
+    )
+  }, [theme])
 
   function toggleTheme() {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'))

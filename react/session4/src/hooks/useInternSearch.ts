@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
+import { useInterns } from '../contexts/intern-context'
 
 interface Intern {
   id: number
@@ -24,11 +25,13 @@ interface UseInternSearchReturn {
 // Without useMemo, filtering runs on every render.
 // With useMemo, filtering only runs when the interns list or search text changes.
 function useInternSearch(interns: Intern[]): UseInternSearchReturn {
-  const [search, setSearch] = useState('')
+  const { search, setSearch } = useInterns()
 
   const filtered = useMemo(() => {
+    const term = search.toLowerCase()
     return interns.filter((intern) =>
-      intern.name.toLowerCase().includes(search.toLowerCase())
+      intern.name.toLowerCase().includes(term) ||
+      intern.role.toLowerCase().includes(term)
     )
   }, [interns, search])
 

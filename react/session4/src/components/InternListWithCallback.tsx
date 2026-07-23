@@ -6,29 +6,45 @@ interface InternRowProps {
   id: number
   name: string
   score: number
+  role?: string
+  isPresent?: boolean
   onRemove: (id: number) => void
 }
 
-function InternRow({ id, name, score, onRemove }: InternRowProps) {
+export function InternRow({
+  id,
+  name,
+  score,
+  role = 'Frontend',
+  isPresent = true,
+  onRemove,
+}: InternRowProps) {
   const { theme } = useTheme()
 
   console.log(`InternRow rendered: ${name}`)
+  const badgeText = score >= 50 ? 'Pass' : 'Fail'
 
   return (
     <div
+      role="row"
       style={{
         background: theme === 'light' ? '#fff' : '#2a2a2a',
         color: theme === 'light' ? '#000' : '#eee',
-        padding: '8px',
-        margin: '4px 0',
+        padding: '12px',
+        margin: '8px 0',
+        border: '1px solid #ccc',
+        borderRadius: '6px',
+        textAlign: 'left',
       }}
     >
-      <span>
-        {name} — {score}
-      </span>
+      <h3>{name}</h3>
+      <span>{name} — {score}</span>
+      <p>Role: {role}</p>
+      <p>Status: {isPresent ? 'Present' : 'Absent'}</p>
+      <p>Badge: <span style={{ fontWeight: 'bold' }}>{badgeText}</span></p>
 
       <button
-        style={{ marginLeft: '10px' }}
+        style={{ marginTop: '10px' }}
         onClick={() => onRemove(id)}
       >
         Remove
@@ -38,7 +54,7 @@ function InternRow({ id, name, score, onRemove }: InternRowProps) {
 }
 
 function InternListWithCallback() {
-  const { interns, removeIntern } = useInterns()
+  const { interns, removeIntern, search } = useInterns()
 
   // useCallback keeps the same function reference between renders.
   // This helps prevent unnecessary re-renders of child components
@@ -50,19 +66,30 @@ function InternListWithCallback() {
     [removeIntern]
   )
 
+  const filteredInterns = interns.filter((intern) =>
+    intern.name.toLowerCase().includes(search.toLowerCase()) ||
+    intern.role.toLowerCase().includes(search.toLowerCase())
+  )
+
   return (
     <div>
       <h2>Intern List</h2>
 
-      {interns.map((intern) => (
-        <InternRow
-          key={intern.id}
-          id={intern.id}
-          name={intern.name}
-          score={intern.score}
-          onRemove={handleRemove}
-        />
-      ))}
+      {filteredInterns.length === 0 ? (
+        <p>No interns found</p>
+      ) : (
+        filteredInterns.map((intern) => (
+          <InternRow
+            key={intern.id}
+            id={intern.id}
+            name={intern.name}
+            score={intern.score}
+            role={intern.role}
+            isPresent={intern.isPresent}
+            onRemove={handleRemove}
+          />
+        ))
+      )}
     </div>
   )
 }
