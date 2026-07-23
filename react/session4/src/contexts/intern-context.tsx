@@ -19,6 +19,8 @@ interface InternContextType {
   isLoading: boolean
   addIntern: (intern: Intern) => void
   removeIntern: (id: number) => void
+  search: string
+  setSearch: (value: string) => void
 }
 
 // Theme and intern data are kept in separate contexts because they
@@ -30,42 +32,51 @@ const InternContext = createContext<InternContextType | null>(null)
 export function InternProvider({ children }: { children: ReactNode }) {
   const [interns, setInterns] = useState<Intern[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
-    setTimeout(() => {
-      setInterns([
-        {
-          id: 1,
-          name: 'Rahul',
-          score: 92,
-          role: 'Frontend',
-          isPresent: true,
-        },
-        {
-          id: 2,
-          name: 'Priya',
-          score: 78,
-          role: 'Backend',
-          isPresent: true,
-        },
-        {
-          id: 3,
-          name: 'Amit',
-          score: 45,
-          role: 'Frontend',
-          isPresent: false,
-        },
-        {
-          id: 4,
-          name: 'Sneha',
-          score: 95,
-          role: 'Fullstack',
-          isPresent: true,
-        },
-      ])
-
-      setIsLoading(false)
-    }, 800)
+    fetch('/api/interns')
+      .then((res) => res.json())
+      .then((data) => {
+        setInterns(data)
+        setIsLoading(false)
+      })
+      .catch(() => {
+        // Fallback to static data if API is unavailable or returns non-JSON (like Vite HTML fallback)
+        setTimeout(() => {
+          setInterns([
+            {
+              id: 1,
+              name: 'Rahul',
+              score: 92,
+              role: 'Frontend',
+              isPresent: true,
+            },
+            {
+              id: 2,
+              name: 'Priya',
+              score: 78,
+              role: 'Backend',
+              isPresent: true,
+            },
+            {
+              id: 3,
+              name: 'Amit',
+              score: 45,
+              role: 'Frontend',
+              isPresent: false,
+            },
+            {
+              id: 4,
+              name: 'Sneha',
+              score: 95,
+              role: 'Fullstack',
+              isPresent: true,
+            },
+          ])
+          setIsLoading(false)
+        }, 800)
+      })
   }, [])
 
   function addIntern(intern: Intern) {
@@ -83,6 +94,8 @@ export function InternProvider({ children }: { children: ReactNode }) {
         isLoading,
         addIntern,
         removeIntern,
+        search,
+        setSearch,
       }}
     >
       {children}

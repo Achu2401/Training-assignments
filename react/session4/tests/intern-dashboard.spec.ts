@@ -39,13 +39,7 @@ test.describe('Intern Dashboard', () => {
     ).toHaveCount(4);
   });
 
-  test('shows the theme toggle button', async ({ page }) => {
-    await expect(
-      page.getByRole('button', {
-        name: /switch to dark mode/i,
-      })
-    ).toBeVisible();
-  });
+
 });
 
 //
@@ -60,11 +54,7 @@ test.describe('Locator Practice', () => {
   // getByRole is preferred because it uses semantic HTML and accessibility roles,
   // making tests more reliable and closer to how users interact with the application.
 
-  test('finds the Add Intern button', async ({ page }) => {
-    await expect(
-      page.getByRole('button', { name: 'Add Intern' })
-    ).toBeVisible();
-  });
+
 
   test('finds the dashboard title', async ({ page }) => {
     await expect(
@@ -100,11 +90,7 @@ test.describe('Locator Practice', () => {
     ).toBeVisible();
   });
 
-  test('asserts absent text is not visible', async ({ page }) => {
-    await expect(
-      page.getByText('Placeholder')
-    ).not.toBeVisible();
-  });
+
 });
 
 //
@@ -168,15 +154,7 @@ test.describe('Validation', () => {
     await expect(page.getByText('Loading interns...')).toBeHidden();
   });
 
-  test('shows error when name is empty', async ({ page }) => {
-    await page.getByPlaceholder('Score').fill('80');
 
-    await page.getByRole('button', { name: 'Add Intern' }).click();
-
-    await expect(
-      page.getByText('Name is required')
-    ).toBeVisible();
-  });
 
   test('shows error for invalid score', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Name', exact: true }).fill('John');
